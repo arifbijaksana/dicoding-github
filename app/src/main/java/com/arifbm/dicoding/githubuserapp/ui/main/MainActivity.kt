@@ -7,7 +7,6 @@ import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -24,7 +23,6 @@ import com.arifbm.dicoding.githubuserapp.ui.detail.DetailUserActivity
 import com.arifbm.dicoding.githubuserapp.ui.favorite.FavoriteActivity
 import com.arifbm.dicoding.githubuserapp.ui.theme.ThemeViewModel
 import com.arifbm.dicoding.githubuserapp.ui.theme.ThemeViewModelFactory
-import com.google.android.material.switchmaterial.SwitchMaterial
 
 
 class MainActivity : AppCompatActivity() {
@@ -45,8 +43,6 @@ class MainActivity : AppCompatActivity() {
         adapter = UserAdapter()
         adapter.notifyDataSetChanged()
 
-//      Switch Theme
-//        val switchTheme = findViewById<SwitchMaterial>(R.id.switch_action_bar)
         val pref = SettingPreferences.getInstance(dataStore)
         themeViewModel = ViewModelProvider(this@MainActivity, ThemeViewModelFactory(pref)).get(
             ThemeViewModel::class.java
@@ -62,8 +58,6 @@ class MainActivity : AppCompatActivity() {
                 }
             })
 
-
-
         adapter.setOnItemClickCallBack(object : UserAdapter.OnItemClickCallback {
             override fun onItemClicked(data: User) {
                 Intent(this@MainActivity, DetailUserActivity::class.java).also {
@@ -75,8 +69,6 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
-
-
 
         viewModel = ViewModelProvider(
             this,

@@ -6,17 +6,6 @@
         android:icon="@drawable/ic_favorite_white"
         android:title="@string/favorite"
         app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/switch_action_bar"
-        android:title="Switch"
-        app:actionLayout="@layout/item_theme"
-        app:showAsAction="always" />
-
-    <!--    <item-->
-    <!--        android:id="@+id/switch_action_bar"-->
-    <!--        android:title=""-->
-    <!--        app:actionViewClass="androidx.appcompat.widget.SwitchCompat"-->
-    <!--        app:showAsAction="always" />-->
 
     <item
         android:id="@+id/action_share"

@@ -58,25 +58,25 @@ class DetailUserActivity : AppCompatActivity() {
             }
         })
 
-        var _isChecked = false
+        var isChecked = false
         CoroutineScope(Dispatchers.IO).launch {
             val count = viewModel.checkUser(id)
             withContext(Dispatchers.Main) {
                 if (count != null) {
                     if (count > 0) {
                         binding.toggleFavorite.isChecked = true
-                        _isChecked = true
+                        isChecked = true
                     } else {
                         binding.toggleFavorite.isChecked = false
-                        _isChecked = false
+                        isChecked = false
                     }
                 }
             }
         }
 
         binding.toggleFavorite.setOnClickListener {
-            _isChecked = !_isChecked
-            if (_isChecked) {
+            isChecked = !isChecked
+            if (isChecked) {
                 if (username  != null) {
                     if (avatarUrl != null) {
                         viewModel.addToFavorite(username, id, avatarUrl)
@@ -85,7 +85,7 @@ class DetailUserActivity : AppCompatActivity() {
             } else {
                 viewModel.removeFromFavorite(id)
             }
-            binding.toggleFavorite.isChecked = _isChecked
+            binding.toggleFavorite.isChecked = isChecked
         }
         val sectionPagerAdapter = SectionPagerAdapter(this, supportFragmentManager, bundle)
         binding.apply {
