@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/favorite_menu"
+        android:icon="@drawable/ic_favorite_white"
+        android:title="@string/favorite"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/switch_action_bar"
+        android:title="Switch"
+        app:actionLayout="@layout/item_theme"
+        app:showAsAction="always" />
+
+    <!--    <item-->
+    <!--        android:id="@+id/switch_action_bar"-->
+    <!--        android:title=""-->
+    <!--        app:actionViewClass="androidx.appcompat.widget.SwitchCompat"-->
+    <!--        app:showAsAction="always" />-->
+
+    <item
+        android:id="@+id/action_share"
+        android:icon="@drawable/ic_share"
+        android:orderInCategory="100"
+        android:title="@string/share"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/action_light"
+        android:icon="@drawable/ic_light"
+        android:orderInCategory="100"
+        android:title="@string/theme_light"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/action_dark"
+        android:icon="@drawable/ic_moon"
+        android:orderInCategory="100"
+        android:title="@string/theme_dark"
+        app:showAsAction="collapseActionView" />
+</menu>
