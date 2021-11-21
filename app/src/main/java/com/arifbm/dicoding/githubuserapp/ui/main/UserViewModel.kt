@@ -16,21 +16,21 @@ class UserViewModel : ViewModel(){
     val listUser = MutableLiveData<ArrayList<User>>()
 
     fun setSearchUser(query: String){
-        RetrofitClient.apiInstance.getSearchUser(query).enqueue(object : Callback<UserResponse>{
 
+        RetrofitClient.apiInstance.getSearchUser(query).enqueue(object : Callback<UserResponse>{
             override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
                 if (response.isSuccessful){
                     listUser.postValue(response.body()?.items)
                 }
             }
-
             override fun onFailure(call: Call<UserResponse>, t: Throwable) {
-                t.message?.let { Log.d("Falure", it) }
+                t.message?.let { Log.d("Failure", it) }
             }
         })
     }
 
     fun getSearchUsers(): LiveData<ArrayList<User>>{
+
         return  listUser
     }
 }

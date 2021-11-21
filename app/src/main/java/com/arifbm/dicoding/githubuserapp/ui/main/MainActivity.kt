@@ -28,7 +28,7 @@ import com.arifbm.dicoding.githubuserapp.ui.theme.ThemeViewModelFactory
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var viewModel: UserViewModel
+    private lateinit var userViewiewModel: UserViewModel
     private lateinit var adapter: UserAdapter
     private lateinit var themeViewModel: ThemeViewModel
     private var isDarkMode: Boolean = false
@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
 
         })
 
-        viewModel = ViewModelProvider(
+        userViewiewModel = ViewModelProvider(
             this,
             ViewModelProvider.NewInstanceFactory()
         ).get(UserViewModel::class.java)
@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
                 searchUser()
             }
 
-            editQuery.setOnKeyListener { view, keyCode, event ->
+            editQuery.setOnKeyListener { _, keyCode, event ->
 
                 if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
                     searchUser()
@@ -95,7 +95,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        viewModel.getSearchUsers().observe(this, {
+        userViewiewModel.getSearchUsers().observe(this, {
             if (it != null) {
                 adapter.setList(it)
                 showLoading(false)
@@ -116,7 +116,7 @@ class MainActivity : AppCompatActivity() {
             val query = editQuery.text.toString()
             if (query.isEmpty()) return
             showLoading(true)
-            viewModel.setSearchUser(query)
+            userViewiewModel.setSearchUser(query)
         }
     }
 
